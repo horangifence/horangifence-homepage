@@ -1,72 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap');
 
-body, html, .app {
+body, html {
   margin: 0;
   padding: 0;
-  font-family: 'sans-serif';
+  font-family: 'Pretendard', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+.app {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 .navbar {
-  background: #333;
+  background: #222;
+  color: white;
   padding: 1rem 0;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-.nav-inner {
-  max-width: 1200px;
-  margin: auto;
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
 }
 
 .logo {
-  color: white;
-  font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
   text-decoration: none;
 }
 
-.nav-menu {
+.nav-links {
+  list-style: none;
   display: flex;
   gap: 1.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.nav-menu a {
-  color: white;
+.nav-links a {
+  color: #ccc;
   text-decoration: none;
+  font-weight: 500;
 }
 
-.hero {
-  height: 50vh;
-  background: url('https://via.placeholder.com/1600x500?text=펜스+시공+전문+호랭이+휀스') center/cover no-repeat;
+.nav-links a:hover {
+  color: #fff;
+}
+
+.hero-section {
+  height: 60vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://via.placeholder.com/1600x600?text=펜스+시공+전문+호랭이+휀스') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-}
-
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
   text-align: center;
 }
 
+.hero-section h1 {
+  font-size: 2.8rem;
+  margin: 0;
+}
+.hero-section p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
 .section {
-  padding: 2rem 1rem;
-  max-width: 1000px;
-  margin: auto;
+  padding: 3rem 1rem;
 }
 
 .service-list {
   list-style: none;
-  padding: 0;
   font-size: 1.1rem;
+  padding-left: 0;
   line-height: 2;
 }
 
@@ -77,12 +94,16 @@ body, html, .app {
 }
 
 .card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
   background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card img {
@@ -90,22 +111,40 @@ body, html, .app {
   height: auto;
 }
 
-.contact-btn {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.75rem 1.2rem;
-  font-size: 1rem;
+.card p {
+  padding: 0.8rem;
+  font-weight: 600;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 6px;
   color: white;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
 }
 
 .call {
-  background: #28a745;
+  background-color: #28a745;
+}
+.call:hover {
+  background-color: #218838;
 }
 
 .sms {
-  background: #007bff;
+  background-color: #007bff;
+}
+.sms:hover {
+  background-color: #0069d9;
 }
 
 .floating-buttons {
@@ -118,10 +157,10 @@ body, html, .app {
 }
 
 .floating-buttons a {
-  background: #333;
+  background: #222;
   color: white;
   text-decoration: none;
-  padding: 0.6rem 0.9rem;
+  padding: 0.7rem 1rem;
   border-radius: 50%;
   font-size: 1.2rem;
 }
