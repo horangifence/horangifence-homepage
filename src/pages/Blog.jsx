@@ -12,10 +12,16 @@ const Blog = () => {
             title: post.title,
             link: post.link,
             date: post.pubDate.split(" ")[0],
-            thumbnail: post.thumbnail || "https://via.placeholder.com/400x225?text=Blog"
+            thumbnail:
+              post.thumbnail ||
+              post.enclosure?.link ||
+              "https://via.placeholder.com/400x225?text=Blog"
           }));
           setPosts(filtered);
         }
+      })
+      .catch(err => {
+        console.error("블로그 불러오기 실패:", err);
       });
   }, []);
 
@@ -23,15 +29,19 @@ const Blog = () => {
     <section className="section container">
       <h2>호랭이 휀스 블로그</h2>
       <div className="blog-grid">
-        {posts.map((post, idx) => (
-          <a key={idx} href={post.link} target="_blank" rel="noopener noreferrer" className="blog-card">
-            <img src={post.thumbnail} alt={post.title} />
-            <div className="blog-content">
-              <h4>{post.title}</h4>
-              <span>{post.date}</span>
-            </div>
-          </a>
-        ))}
+        {posts.length === 0 ? (
+          <p>블로그 글을 불러오는 중이거나 아직 게시글이 없습니다.</p>
+        ) : (
+          posts.map((post, idx) => (
+            <a key={idx} href={post.link} target="_blank" rel="noopener noreferrer" className="blog-card">
+              <img src={post.thumbnail} alt={post.title} />
+              <div className="blog-content">
+                <h4>{post.title}</h4>
+                <span>{post.date}</span>
+              </div>
+            </a>
+          ))
+        )}
       </div>
     </section>
   );
