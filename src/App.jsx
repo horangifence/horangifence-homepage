@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Phone, MessageSquare } from "lucide-react";
 
 const samples = Array.from({ length: 12 }, (_, i) => ({
   title: `시공 사례 ${i + 1}`,
@@ -52,14 +53,14 @@ function App() {
         <h2>견적 문의</h2>
         <p>전화 또는 문자로 빠르게 견적을 받아보세요.</p>
         <div className="buttons">
-          <a href="tel:01021373387" className="btn call">📞 전화하기</a>
-          <a href="sms:01021373387" className="btn sms">💬 문자보내기</a>
+          <a href="tel:01021373387" className="btn call"><Phone size={18} /> 전화하기</a>
+          <a href="sms:01021373387" className="btn sms"><MessageSquare size={18} /> 문자보내기</a>
         </div>
       </section>
 
       <div className="floating-buttons">
-        <a href="tel:01021373387">📞</a>
-        <a href="sms:01021373387">💬</a>
+        <a href="tel:01021373387" className="floating-icon"><Phone size={18} /></a>
+        <a href="sms:01021373387" className="floating-icon"><MessageSquare size={18} /></a>
       </div>
     </div>
   );
