@@ -53,14 +53,14 @@ function App() {
         <h2>견적 문의</h2>
         <p>전화 또는 문자로 빠르게 견적을 받아보세요.</p>
         <div className="buttons">
-          <a href="tel:01021373387" className="btn call"><Phone size={18} /> 전화하기</a>
-          <a href="sms:01021373387" className="btn sms"><MessageSquare size={18} /> 문자보내기</a>
+          <a href="tel:01021373387" className="action-button"><Phone size={18} /><span>전화하기</span></a>
+          <a href="sms:01021373387" className="action-button sms"><MessageSquare size={18} /><span>문자보내기</span></a>
         </div>
       </section>
 
       <div className="floating-buttons">
-        <a href="tel:01021373387" className="floating-icon"><Phone size={18} /></a>
-        <a href="sms:01021373387" className="floating-icon"><MessageSquare size={18} /></a>
+        <a href="tel:01021373387" className="action-button"><Phone size={18} /><span>전화</span></a>
+        <a href="sms:01021373387" className="action-button sms"><MessageSquare size={18} /><span>문자</span></a>
       </div>
     </div>
   );

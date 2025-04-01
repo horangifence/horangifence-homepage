@@ -164,3 +164,32 @@ body, html {
   border-radius: 50%;
   font-size: 1.2rem;
 }
+
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: #333;
+  padding: 0.75rem 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.action-button:hover {
+  background: #f1f1f1;
+  transform: translateY(-2px);
+}
+
+.action-button svg {
+  color: #007bff;
+}
+
+.action-button.sms svg {
+  color: #28a745;
+}
