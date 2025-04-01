@@ -25,14 +25,12 @@ const Estimate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 이메일 전송용 Formspree POST 요청
     fetch("https://formspree.io/f/mjkyeqdq", {
       method: "POST",
       headers: { Accept: "application/json" },
       body: new FormData(e.target)
     });
 
-    // 게시판용 LocalStorage 저장
     const newPost = {
       ...form,
       date: new Date().toLocaleString()
@@ -47,16 +45,9 @@ const Estimate = () => {
     <section className="section container">
       <h2>견적 문의</h2>
       <form onSubmit={handleSubmit} className="estimate-form">
-        <label>
-          이름
-          <input type="text" name="name" value={form.name} onChange={handleChange} required />
-        </label>
-        <label>
-          연락처
-          <input type="tel" name="phone" value={form.phone} onChange={handleChange} required />
-        </label>
-        <label>
-          펜스 종류
+        <label>이름<input type="text" name="name" value={form.name} onChange={handleChange} required /></label>
+        <label>연락처<input type="tel" name="phone" value={form.phone} onChange={handleChange} required /></label>
+        <label>펜스 종류
           <select name="type" value={form.type} onChange={handleChange} required>
             <option value="">선택하세요</option>
             <option value="메쉬휀스">메쉬휀스</option>
@@ -65,14 +56,8 @@ const Estimate = () => {
             <option value="특수휀스">특수휀스</option>
           </select>
         </label>
-        <label>
-          현장 주소
-          <input type="text" name="address" value={form.address} onChange={handleChange} required />
-        </label>
-        <label>
-          설명
-          <textarea name="message" rows="3" value={form.message} onChange={handleChange} placeholder="자유롭게 적어주세요" />
-        </label>
+        <label>현장 주소<input type="text" name="address" value={form.address} onChange={handleChange} required /></label>
+        <label>설명<textarea name="message" rows="3" value={form.message} onChange={handleChange} placeholder="자유롭게 적어주세요" /></label>
         <button type="submit" className="btn-submit">견적 요청</button>
       </form>
 
@@ -84,9 +69,17 @@ const Estimate = () => {
           <ul>
             {posts.map((post, idx) => (
               <li key={idx}>
-                <strong>{post.name}</strong> ({post.type})<br />
-                {post.address} - {post.message}<br />
-                <small>{post.date}</small>
+                <div className="post-header">
+                  <span className="post-number">{posts.length - idx}</span>
+                  <div className="post-main">
+                    <div className="post-title">
+                      <strong>{post.name}</strong> · {post.type}
+                    </div>
+                    <div className="post-address">{post.address}</div>
+                    <div className="post-message">{post.message}</div>
+                  </div>
+                  <div className="post-date">{post.date}</div>
+                </div>
               </li>
             ))}
           </ul>
