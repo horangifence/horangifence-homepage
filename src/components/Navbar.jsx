@@ -8,6 +8,7 @@ const Navbar = () => (
       <ul className="nav-links">
         <li><Link to="/portfolio">시공 사례</Link></li>
         <li><Link to="/estimate">견적 문의</Link></li>
+              <li><Link to="/blog">블로그</Link></li>
       </ul>
     </div>
   </nav>
