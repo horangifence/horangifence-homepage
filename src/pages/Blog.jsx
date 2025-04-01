@@ -1,59 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const blogPosts = [
-  {
-    title: "메쉬휀스 시공 현장 리뷰",
-    image: "https://via.placeholder.com/400x225?text=Blog+1",
-    date: "2024.11.10",
-    url: "https://blog.naver.com/yourblog/1"
-  },
-  {
-    title: "디자인 휀스로 주택 분위기 업!",
-    image: "https://via.placeholder.com/400x225?text=Blog+2",
-    date: "2024.12.02",
-    url: "https://blog.naver.com/yourblog/2"
-  },
-  {
-    title: "공장 외곽 특수휀스 설치",
-    image: "https://via.placeholder.com/400x225?text=Blog+3",
-    date: "2025.01.05",
-    url: "https://blog.naver.com/yourblog/3"
-  },
-  {
-    title: "합성목 휀스 설치 포인트",
-    image: "https://via.placeholder.com/400x225?text=Blog+4",
-    date: "2025.02.14",
-    url: "https://blog.naver.com/yourblog/4"
-  },
-  {
-    title: "펜스 시공 전 체크리스트",
-    image: "https://via.placeholder.com/400x225?text=Blog+5",
-    date: "2025.03.01",
-    url: "https://blog.naver.com/yourblog/5"
-  },
-  {
-    title: "펜스 시공 A to Z",
-    image: "https://via.placeholder.com/400x225?text=Blog+6",
-    date: "2025.03.22",
-    url: "https://blog.naver.com/yourblog/6"
-  }
-];
+const Blog = () => {
+  const [posts, setPosts] = useState([]);
 
-const Blog = () => (
-  <section className="section container">
-    <h2>호랭이 휀스 블로그</h2>
-    <div className="blog-grid">
-      {blogPosts.map((post, idx) => (
-        <a key={idx} href={post.url} target="_blank" rel="noopener noreferrer" className="blog-card">
-          <img src={post.image} alt={post.title} />
-          <div className="blog-content">
-            <h4>{post.title}</h4>
-            <span>{post.date}</span>
-          </div>
-        </a>
-      ))}
-    </div>
-  </section>
-);
+  useEffect(() => {
+    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.blog.naver.com/hanbada100.xml")
+      .then(res => res.json())
+      .then(data => {
+        if (data.items) {
+          const filtered = data.items.slice(0, 8).map(post => ({
+            title: post.title,
+            link: post.link,
+            date: post.pubDate.split(" ")[0],
+            thumbnail: post.thumbnail || "https://via.placeholder.com/400x225?text=Blog"
+          }));
+          setPosts(filtered);
+        }
+      });
+  }, []);
+
+  return (
+    <section className="section container">
+      <h2>호랭이 휀스 블로그</h2>
+      <div className="blog-grid">
+        {posts.map((post, idx) => (
+          <a key={idx} href={post.link} target="_blank" rel="noopener noreferrer" className="blog-card">
+            <img src={post.thumbnail} alt={post.title} />
+            <div className="blog-content">
+              <h4>{post.title}</h4>
+              <span>{post.date}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Blog;
