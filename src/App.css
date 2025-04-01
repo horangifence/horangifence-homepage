@@ -1,157 +1,127 @@
-/* 기본 폰트와 마진 리셋 */
-body, html, .App {
+
+body, html, .app {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica", sans-serif;
+  font-family: 'sans-serif';
 }
 
-/* 네비게이션 바 */
 .navbar {
   background: #333;
-  padding: 1rem;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
 }
-.nav-list {
+
+.nav-inner {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
-.nav-list li {
-  margin: 0 1rem;
-}
-.nav-list li a {
+
+.nav-menu a {
   color: white;
   text-decoration: none;
 }
 
-/* 히어로 섹션 */
-.hero-section {
-  position: relative;
-  height: 60vh;
-  background: url("https://via.placeholder.com/1600x900?text=Hero+Image") center/cover no-repeat;
-}
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.4);
-  color: white;
+.hero {
+  height: 50vh;
+  background: url('https://via.placeholder.com/1600x500?text=펜스+시공+전문+호랭이+휀스') center/cover no-repeat;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-.hero-overlay h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-.hero-overlay p {
-  font-size: 1.5rem;
+  justify-content: center;
+  color: white;
 }
 
-/* 서비스 섹션 */
-.services-section {
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.4);
   padding: 2rem;
   text-align: center;
 }
-.services-section ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1.2rem;
+
+.section {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
-/* 시공 사례 섹션 */
-.portfolio-section {
-  padding: 2rem;
+.service-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 2;
 }
-.portfolio-grid {
+
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
-.portfolio-card {
-  border: 1px solid #ccc;
-  border-radius: 12px;
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.portfolio-card img {
+
+.card img {
   width: 100%;
   height: auto;
 }
-.card-content {
-  padding: 1rem;
-}
 
-/* 견적 요청 섹션 */
-.estimate-section {
-  padding: 2rem;
-  background: #f1f1f1;
-  border-radius: 12px;
-}
-.estimate-form {
-  max-width: 600px;
-  margin: 0 auto;
-}
-.form-group {
-  margin-bottom: 1rem;
-}
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.5rem;
-  box-sizing: border-box;
-}
-.submit-btn {
-  width: 100%;
-  padding: 1rem;
-  background: #333;
+.contact-btn {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 6px;
   color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
-/* 게시판 스타일 */
-.request-board {
-  max-width: 800px;
-  margin: 3rem auto 0;
-  padding: 0 1rem;
+.call {
+  background: #28a745;
 }
-.request-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+.sms {
+  background: #007bff;
 }
-.pagination {
+
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.pagination button {
-  padding: 0.5rem 1rem;
-  margin: 0 0.2rem;
-  border: 1px solid #ccc;
-  background: #fff;
-  color: #333;
-  cursor: pointer;
-}
-.pagination button.active-page,
-.pagination button:hover {
+
+.floating-buttons a {
   background: #333;
   color: white;
+  text-decoration: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
 }
