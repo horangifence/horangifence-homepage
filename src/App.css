@@ -193,3 +193,42 @@ body, html {
 .action-button.sms svg {
   color: #28a745;
 }
+
+
+.estimate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.estimate-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.estimate-form input,
+.estimate-form select,
+.estimate-form textarea {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 0.4rem;
+}
+
+.btn-submit {
+  background: #007bff;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: #0056b3;
+}
