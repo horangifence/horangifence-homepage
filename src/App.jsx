@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Estimate from "./pages/Estimate";
-import Blog from "./pages/Blog"; // ✅ 블로그 페이지 import 추가
+import Blog from "./pages/Blog";
 import "./App.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/estimate" element={<Estimate />} />
-        <Route path="/blog" element={<Blog />} /> {/* ✅ 블로그 라우터 추가 */}
+        <Route path="/blog" element={<Blog />} />
       </Routes>
     </Router>
   );
