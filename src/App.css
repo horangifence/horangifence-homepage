@@ -232,3 +232,21 @@ body, html {
 .btn-submit:hover {
   background: #0056b3;
 }
+
+
+
+.estimate-board {
+  margin-top: 3rem;
+}
+.estimate-board ul {
+  list-style: none;
+  padding: 0;
+}
+.estimate-board li {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  line-height: 1.5;
+}
+.estimate-board strong {
+  font-size: 1.1rem;
+}
